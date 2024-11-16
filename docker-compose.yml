@@ -1,0 +1,52 @@
+
+services:
+  menu_service:
+    build: ./menu_service
+    ports:
+      - "5002:5002"
+    depends_on:
+      - db
+      - pet_service
+      - interaction_service
+      - user_service
+    
+    environment:
+      - DATABASE_URL=postgresql://postgre:1234@db:5432/mascotas
+
+  db:
+    image: postgres:latest  
+    environment:
+      POSTGRES_USER: postgre  
+      POSTGRES_PASSWORD: 1234  
+      POSTGRES_DB: mascotas 
+
+  pet_service:
+    build: ./pet_service
+    ports:
+      - "5003:5003"
+    depends_on:
+      - db
+    
+    environment:
+      - DATABASE_URL=postgresql://postgre:1234@db:5432/mascotas
+
+  interaction_service:
+    build: ./interaction_service
+    ports:
+      - "5004:5004"
+    depends_on:
+      - db
+    
+    environment:
+      - DATABASE_URL=postgresql://postgre:1234@db:5432/mascotas
+
+  user_service:
+    build: ./user_service
+    ports:
+      - "5005:5005"
+    depends_on:
+      - db
+    
+    environment:
+      - DATABASE_URL=postgresql://postgre:1234@db:5432/mascotas
+

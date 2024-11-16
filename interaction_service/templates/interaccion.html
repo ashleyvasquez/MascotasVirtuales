@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacciones</title>
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Opcional para estilos -->
+</head>
+<body>
+    <h1>Adoptar una Mascota</h1>
+    <form action="/interaccion" method="post">
+        <label for="mascota_id">mascota_id:</label>
+        <input type="text" id="mascota_id" name="mascota_id" required><br><br>
+
+        <label for="tipo">tipo:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="">Selecciona una interaccion</option>
+            <option value="alimentar">alimentar</option>
+            <option value="jugar">jugar</option>
+            <option value="cuidar">cuidar</option>
+        </select><br><br>
+
+        <button type="submit">Interactuar</button>
+    </form>
+    <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+
+    <script>
+        function volverAlMenu() {
+            // Redirige al menú principal
+            window.location.href = 'http://localhost:5002';  // Aquí va la URL del menú principal
+        }
+    </script>
+</body>
+</html>
