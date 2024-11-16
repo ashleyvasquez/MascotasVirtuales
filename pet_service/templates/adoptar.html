@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoptar Mascota</title>
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Opcional para estilos -->
+</head>
+<body>
+    <h1>Adoptar una Mascota</h1>
+    <form action="/adoptar" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="especie">Especie:</label>
+        <select id="especie" name="especie" required>
+            <option value="">Selecciona una especie</option>
+            <option value="perro">perro</option>
+            <option value="gato">gato</option>
+            <option value="dragón">dragón</option>
+            <option value="pájaro">pájaro</option>
+            <option value="pez">pez</option>
+        </select><br><br>
+
+        <input type="hidden" name="usuario_id" value="1"> <!-- Usuario ficticio -->
+        <button type="submit">Adoptar</button>
+
+        <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+
+    <script>
+        function volverAlMenu() {
+            // Redirige al menú principal
+            window.location.href = 'http://localhost:5002';  // Aquí va la URL del menú principal
+        }
+    </script>
+    </form>
+</body>
+</html>

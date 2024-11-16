@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Mascotas</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Mis Mascotas</h1>
+    {% if mascotas %}
+        <ul>
+            {% for mascota in mascotas %}
+                <li>
+                    <h3>{{ mascota.nombre }}</h3>
+                    <p>Especie: {{ mascota.especie }}</p>
+                    <p>Estado: {{ mascota.estado }}</p>
+                    <p>Fecha de adopcion: {{ mascota.fecha_adopcion }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No has adoptado ninguna mascota todavía.</p>
+    {% endif %}
+    <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+
+    <script>
+        function volverAlMenu() {
+            // Redirige al menú principal
+            window.location.href = 'http://localhost:5002/';  // Aquí va la URL del menú principal
+        }
+    </script>
+</body>
+</html>

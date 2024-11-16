@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+</head>
+<body>
+    <h1>Menú Principal</h1>
+    <div>
+        <!-- Botones para redirigir a las rutas de los microservicios -->
+        <button onclick="redirigir('adoptar')">Adoptar</button>
+        <button onclick="redirigir('mismascotas')">Mis Mascotas</button>
+        <button onclick="redirigir('interactuar')">Interactuar</button>
+    </div>
+
+    <script>
+        function redirigir(tipo) {
+            switch (tipo) {
+                case 'adoptar':
+                    window.location.href = 'http://localhost:5003/adoptar';  // Ruta del microservicio de mascotas
+                    break;
+                case 'mismascotas':
+                    window.location.href = 'http://localhost:5003/mismascotas';  // Otra ruta del microservicio de mascotas
+                    break;
+                case 'interactuar':
+                    window.location.href = 'http://localhost:5004/interaccion';  // Ruta del microservicio de interacciones
+                    break;
+                default:
+                    console.log('Ruta no encontrada');
+            }
+        }
+    </script>
+</body>
+</html>
+
